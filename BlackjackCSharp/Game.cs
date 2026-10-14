@@ -2,6 +2,7 @@
 namespace BlackjackCSharp;
 public class Game
 {
+    public GameRules gameRules = new();
     public bool GameActive { get; set; }
     public Game()
     {
@@ -12,7 +13,7 @@ public class Game
     {
         do
         {
-            gameRules.GameStart();
+            gameRules.StartGame();
 
             // Examples:
             // gameRules.PlayerTurn();

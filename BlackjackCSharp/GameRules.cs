@@ -2,7 +2,7 @@
 
 namespace BlackjackCSharp;
 
-internal class GameRules
+public class GameRules
 {
     public GameRules()
     {
