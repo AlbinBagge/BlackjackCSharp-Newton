@@ -46,7 +46,7 @@ public abstract class Person
     {
         foreach (var Card in Hand)
         {
-            Console.WriteLine(Card.ToString);
+            Console.WriteLine(Card.ToString());
         }
         Console.WriteLine();
         Console.WriteLine($"The total value of the hand is {CountHandValue()}");
