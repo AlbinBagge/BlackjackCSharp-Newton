@@ -1,4 +1,5 @@
-﻿// Albin Bagge
+﻿using System.Numerics;
+
 namespace BlackjackCSharp;
 
 internal class GameRules
@@ -9,7 +10,14 @@ internal class GameRules
 
     public void StartGame()
     {
-        // Placeholders:
+        // Code:
+        CardDeck deck = new();
+        Dealer dealer = new("Dealer");
+        Player player = new("Player");
+
+
+        // PLACEHOLDER CODE
+
         List<int> phDeck = CreatePlaceholderDeck();
         List<int> phPlayerHand = new();
         List<int> phDealerHand = new();
@@ -42,6 +50,8 @@ internal class GameRules
 
         // Check for win: Blackjack (Ace + 10)
     }
+
+    // PLACEHOLDERS METHODS
 
     // Placeholder: create placeholder deck
     private List<int> CreatePlaceholderDeck()
