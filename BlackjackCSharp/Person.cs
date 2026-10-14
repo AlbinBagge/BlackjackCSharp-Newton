@@ -2,9 +2,9 @@ namespace BlackjackCSharp;
 
 public abstract class Person
 {
-    public List<Card> Hand { get; set; }
-    public bool HasStood { get; set; }
-    public string Name { get; set; }
+    private List<Card> Hand;
+    private bool HasStood;
+    private string Name;
 
     protected Person(string name)
     {
@@ -13,17 +13,25 @@ public abstract class Person
         HasStood = false;
     }
     
-    public void Hit(CardDeck drawDeck, CardDeck usedCard)
+    public void Hit()
     {
-        Hand.Add(cardDeck.DrawCard(drawDeck, usedCard));
+        Hand.Add(CardDeck.DrawCard());
+        Console.Clear();
+        Console.WriteLine($"{Name} hit! Their hand now is:");
+        Console.WriteLine();
+
+        PresentInfo();
     }
 
     public void Stand()
     {
         HasStood = true;
+        Console.WriteLine($"{Name} has now stood. Their final hand is:");
+        Console.WriteLine();
+        PresentInfo();
     }
 
-    public int CountHandValue()
+    private int CountHandValue()
     {
         int total = 0;
         
@@ -31,7 +39,16 @@ public abstract class Person
         {
             total += Card.value;
         }
-
         return total;
-    } 
+    }
+
+    private void PresentInfo()
+    {
+        foreach (var Card in Hand)
+        {
+            Console.WriteLine(Card.ToString);
+        }
+        Console.WriteLine();
+        Console.WriteLine($"The total value of the hand is {CountHandValue()}");
+    }
 }
