@@ -53,7 +53,7 @@ public class CardDeck
     
     //  Uppdaterad kortdragnings och kortlek logik nedan
     
-    private Card drawCard()
+    private Card DrawCard()
     {
         if (CardList.Count < 13)
         {
@@ -61,7 +61,7 @@ public class CardDeck
         }
         
         Card drawnCard = CardList[0];
-        return drawCard;
+        return DrawCard;
     }
 
     private void CutCardFound()
