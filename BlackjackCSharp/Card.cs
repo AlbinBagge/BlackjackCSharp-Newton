@@ -15,6 +15,6 @@ public class Card
     }
     public override string ToString()
     {
-        return $"{rank} of {suit} {symbole} (Value: {value})";
+        return $"{Rank} of {Suit} {Symbole} (Value: {Value })";
     }
 }

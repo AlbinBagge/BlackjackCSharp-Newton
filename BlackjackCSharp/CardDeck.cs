@@ -2,9 +2,9 @@
 
 public class CardDeck
 {
-	private List<Card> CardList = new List<Card>();
-    private Random Random = new Random();
-    private bool CutCardIsFound;
+	public List<Card> CardList = new List<Card>();
+    public Random Random = new Random();
+    public bool CutCardIsFound;
 
     public CardDeck()
     {
@@ -18,7 +18,7 @@ public class CardDeck
         CutCardIsFound = false;
     }
 
-    private void InitializeDeck()
+    public void InitializeDeck()
     {
         char[] suitSymbols = { '\u2665', '\u2666', '\u2663', '\u2660' }; // Hearts, Diamonds, Clubs, Spades
         string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
@@ -56,7 +56,7 @@ public class CardDeck
         
     }
 
-    private void shuffle()
+    public void shuffle()
     {
         int n = CardList.Count;
         for (int i = 0; i < n; i++)
@@ -70,7 +70,7 @@ public class CardDeck
     
     //  Uppdaterad kortdragnings och kortlek logik nedan
     
-    private Card DrawCard()
+    public Card DrawCard()
     {
         if (CardList.Count < 13)
         {
@@ -84,7 +84,7 @@ public class CardDeck
         return drawnCard;
     }
 
-    private void CutCardFound()
+    public void CutCardFound()
     {
         Console.WriteLine("The deck is low on cards, the deck will be replaced with a new one next round.");
         CutCardIsFound = true;
