@@ -16,10 +16,10 @@ class Program
          * - WinChecks()
          */
 
-        GameRules game = new();
+        GameRules gameRules = new();
 
         // Initial card draws & checks:
-        game.StartGame();
+        gameRules.StartGame();
 
         // Player Hit loop
         // - Player Hit or Stay
