@@ -31,7 +31,7 @@ public abstract class Person
         PresentInfo();
     }
 
-    private int CountHandValue()
+    public int CountHandValue()
     {
         int total = 0;
         
@@ -42,7 +42,7 @@ public abstract class Person
         return total;
     }
 
-    private void PresentInfo()
+    public void PresentInfo()
     {
         foreach (var Card in Hand)
         {
