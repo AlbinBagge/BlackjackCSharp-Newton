@@ -4,6 +4,7 @@ public class CardDeck
 {
 	private List<Card> CardList = new List<Card>();
     private Random Random = new Random();
+    private bool CutCardIsFound;
 
     public CardDeck()
     {
@@ -14,6 +15,7 @@ public class CardDeck
 
         InitializeDeck();
         shuffle();
+        CutCardIsFound = false;
     }
 
     private void InitializeDeck()
@@ -51,17 +53,20 @@ public class CardDeck
     
     //  Uppdaterad kortdragnings och kortlek logik nedan
     
-    private Card drawCard(CardDeck drawingDeck, CardDeck usedCards)
+    private Card drawCard()
     {
-        if (drawingDeck.CardList.Count < 13)
+        if (CardList.Count < 13)
         {
-            Console.WriteLine("The deck is low on cards. Adding used cards from before.");
-            
-            usedCards.shuffle();
-            drawingDeck.CardList.AddRange(usedCards.CardList); //   Addar listan i listan.
+            CutCardFound();
         }
         
-        Card drawnCard = drawingDeck.CardList[0];
+        Card drawnCard = CardList[0];
         return drawCard;
+    }
+
+    private void CutCardFound()
+    {
+        Console.WriteLine("The deck is low on cards, the deck will be replaced with a new one next round.");
+        CutCardIsFound = true;
     }
 }
