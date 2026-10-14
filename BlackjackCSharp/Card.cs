@@ -6,7 +6,7 @@ public class Card
     public string Rank { get; set; }
     public int Value { get; set; }
     public char Symbole { get; set; }
-    public Card(string suit, string rank, int value, char symbole)
+    public Card(string rank, string suit, int value, char symbole)
     {
         Suit = suit;
         Rank = rank;
