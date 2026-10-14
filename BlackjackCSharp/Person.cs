@@ -13,9 +13,9 @@ public abstract class Person
         HasStood = false;
     }
     
-    public void Hit()
+    public void Hit(CardDeck drawDeck)
     {
-        Hand.Add(CardDeck.DrawCard());
+        Hand.Add(drawDeck.DrawCard());
         Console.Clear();
         Console.WriteLine($"{Name} hit! Their hand now is:");
         Console.WriteLine();

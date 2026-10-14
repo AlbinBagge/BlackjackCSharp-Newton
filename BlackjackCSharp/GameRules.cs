@@ -12,7 +12,7 @@ public class GameRules
     {
         // Code:
         CardDeck deck = new();
-        Dealer dealer = new("Dealer");
+        Dealer dealer = new();
         Player player = new("Player");
 
 
@@ -93,5 +93,20 @@ public class GameRules
         {
             Console.WriteLine(card);
         }
+    }
+
+    public void DealerTurn(Dealer dealer, CardDeck deck)
+    {
+        do
+        {
+            if (dealer.DealerCanDraw())
+            {
+                dealer.Hit(deck);
+            }
+            else
+            {
+                dealer.Stand();
+            }
+        } while (!dealer.HasStood);
     }
 }
