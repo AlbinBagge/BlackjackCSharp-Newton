@@ -23,20 +23,37 @@ public class CardDeck
         char[] suitSymbols = { '\u2665', '\u2666', '\u2663', '\u2660' }; // Hearts, Diamonds, Clubs, Spades
         string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
         string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
-        foreach (var suit in suits)
-        {
-            for (int i = 0; i < ranks.Length; i++)
+        
+        
+            for (int s = 0; s < suitSymbols.Length; s++)
             {
-                CardList.Add(new Card(ranks[i], suit));
+                string suitName = suits[s];
+                char suitSymbol = suitSymbols[s];
 
-                string value = ranks[i];
-                int value = i + 2;
-                if (value == "Ace") value = 11; // Ace
-                else if (value == "Jack" || value == "Queen" || value == "King") value = 10; // Face cards
-                else value = int.Parse(value); // Number cards
+                for (int i = 0; i < ranks.Length; i++)
+                {
 
+                    string cardrank = ranks[i];
+                    int cardvalue = 0;
+
+                    if (cardrank == "Ace")
+                    {
+                        cardvalue = 11; // Ace
+                    }
+                    else if (cardrank == "Jack" || cardrank == "Queen" || cardrank == "King")
+                    {
+                        cardvalue = 10; //  face card
+                    }
+                    else
+                    {
+                        cardvalue = int.Parse(cardrank); // Number cards
+                    }
+
+                    CardList.Add(new Card(cardrank, suitName, cardvalue));
+
+                }
             }
-        }
+        
     }
 
     private void shuffle()
@@ -59,9 +76,12 @@ public class CardDeck
         {
             CutCardFound();
         }
-        
+
+        // if (CardList.Count == 0) return null; // Return null if the deck is empty
+
         Card drawnCard = CardList[0];
-        return DrawCard;
+        CardList.RemoveAt(0);
+        return drawnCard;
     }
 
     private void CutCardFound()
