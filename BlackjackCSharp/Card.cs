@@ -2,19 +2,19 @@
 
 public class Card
 {
-    public string suit { get; set; }
-    public string rank { get; set; }
-    public int value { get; set; }
-    public Card(string suit, string rank, int value)
+    public string Suit { get; set; }
+    public string Rank { get; set; }
+    public int Value { get; set; }
+    public char Symbole { get; set; }
+    public Card(string suit, string rank, int value, char symbole)
     {
-        this.suit = suit;
-        this.rank = rank;
-        this.value = value;
+        Suit = suit;
+        Rank = rank;
+        Value = value;
+        Symbole = symbole;
     }
     public override string ToString()
     {
-        return $"{rank} of {suit} (Value: {value})";
+        return $"{rank} of {suit} {symbole} (Value: {value})";
     }
-}
-   
 }
