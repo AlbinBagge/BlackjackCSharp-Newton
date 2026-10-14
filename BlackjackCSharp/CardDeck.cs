@@ -49,7 +49,7 @@ public class CardDeck
                         cardvalue = int.Parse(cardrank); // Number cards
                     }
 
-                    CardList.Add(new Card(cardrank, suitName, cardvalue));
+                    CardList.Add(new Card(cardrank, suitName, cardvalue, suitSymbol));
 
                 }
             }
