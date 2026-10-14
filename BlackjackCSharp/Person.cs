@@ -3,8 +3,8 @@ namespace BlackjackCSharp;
 public abstract class Person
 {
     private List<Card> Hand;
-    private bool HasStood;
-    private string Name;
+    public bool HasStood;
+    public string Name;
 
     protected Person(string name)
     {
