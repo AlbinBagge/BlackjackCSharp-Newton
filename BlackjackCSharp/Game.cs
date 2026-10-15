@@ -1,5 +1,5 @@
-﻿// Albin Bagge
-namespace BlackjackCSharp;
+﻿namespace BlackjackCSharp;
+
 public class Game
 {
     public GameRules GameRules = new();
@@ -37,10 +37,9 @@ public class Game
                     }
                 }
             }
+
+            // Example: GameRules.AskPlayAgain()
         }
-
-        // Example: GameRules.AskPlayAgain()
-
         while (s_gameActive);
     }
 }
