@@ -11,31 +11,28 @@ public class GameRules
     public void StartGame()
     {
         // Create instances
-        CardDeck deck = new();
-        Dealer dealer = new();
-        Player player = new("Player");
 
-        DebugPrintDeck(deck); // Debug
+        DebugPrintDeck(); // Debug
         Console.WriteLine(); // Debug
 
-        // Give dealer initial cards
-        dealer.Hit(deck);
-        dealer.Hit(deck);
-        Console.WriteLine($"{dealer.Hand[0]}"); // Print first card in the hand
+        // Give Game.dealer initial cards
+        Game.DealerObject.Hit(Game.DeckObject);
+        Game.DealerObject.Hit(Game.DeckObject);
+        Console.WriteLine($"{Game.DealerObject.Hand[0]}"); // Print first card in the hand
         Console.WriteLine("*2nd hidden card*");
 
-        DebugPrintDeck(deck); // Debug
+        DebugPrintDeck(); // Debug
 
         // Give player initial cards
         Console.WriteLine();
-        player.Hit(deck);
-        player.Hit(deck);
-        player.PresentInfo();
+        Game.PlayerObject.Hit(Game.DeckObject);
+        Game.PlayerObject.Hit(Game.DeckObject);
+        Game.PlayerObject.PresentInfo();
 
-        DebugPrintDeck(deck); // Debug
+        DebugPrintDeck(); // Debug
 
         // Check for player Blackjack
-        if (player.CountHandValue() == 21)
+        if (Game.PlayerObject.CountHandValue() == 21)
         {
             Console.WriteLine("Player win - player has Blackjack!");
         }
@@ -43,30 +40,30 @@ public class GameRules
         // Check for loss & account for ace (two aces is 22 > 21)
     }
 
-    // Debug: print the deck's card values
-    private void DebugPrintDeck(CardDeck deck)
+    // Debug: print the Game.deck's card values
+    private void DebugPrintDeck()
     {
         Console.WriteLine();
         Console.WriteLine("Debug: deck");
-        foreach (Card card in deck.CardList)
+        foreach (Card card in Game.DeckObject.CardList)
         {
             Console.Write($"{card.Value,3}");
         }
         Console.WriteLine();
     }
 
-    public void DealerTurn(Dealer dealer, CardDeck deck)
+    public void DealerTurn()
     {
         do
         {
-            if (dealer.DealerCanDraw())
+            if (Game.DealerObject.DealerCanDraw())
             {
-                dealer.Hit(deck);
+                Game.DealerObject.Hit(Game.DeckObject);
             }
             else
             {
-                dealer.Stand();
+                Game.DealerObject.Stand();
             }
-        } while (!dealer.HasStood);
+        } while (!Game.DealerObject.HasStood);
     }
 }
