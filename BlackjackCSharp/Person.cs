@@ -2,7 +2,7 @@ namespace BlackjackCSharp;
 
 public abstract class Person
 {
-    private List<Card> Hand;
+    public List<Card> Hand;
     public bool HasStood;
     public string Name;
 
