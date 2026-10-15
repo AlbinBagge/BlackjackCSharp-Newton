@@ -53,4 +53,11 @@ public abstract class Person
         Console.WriteLine();
         Console.WriteLine($"The total value of the hand is {CountHandValue()}");
     }
+
+    public void ClearHand()
+    {
+        Hand.Clear();
+        HasStood = false;
+    }
+
 }
