@@ -33,7 +33,7 @@ public class Game
 
                     if (s_gameActive)
                     {
-                        GameRules.WinCheck();
+                        //  GameRules.WinCheck();
                     }
                 }
             }
