@@ -12,7 +12,7 @@ public class GameRules
     {
         // Create instances
         CardDeck deck = new();
-        Dealer dealer = new("Dealer");
+        Dealer dealer = new();
         Player player = new("Player");
 
         DebugPrintDeck(deck); // Debug
@@ -53,5 +53,20 @@ public class GameRules
             Console.Write($"{card.Value,3}");
         }
         Console.WriteLine();
+    }
+
+    public void DealerTurn(Dealer dealer, CardDeck deck)
+    {
+        do
+        {
+            if (dealer.DealerCanDraw())
+            {
+                dealer.Hit(deck);
+            }
+            else
+            {
+                dealer.Stand();
+            }
+        } while (!dealer.HasStood);
     }
 }

@@ -72,13 +72,11 @@ public class CardDeck
     
     public Card DrawCard()
     {
-        if (CardList.Count < 13)
+        if (CardList.Count < 13 && !CutCardIsFound)
         {
             CutCardFound();
         }
-
-        // if (CardList.Count == 0) return null; // Return null if the deck is empty
-
+        
         Card drawnCard = CardList[0];
         CardList.RemoveAt(0);
         return drawnCard;
