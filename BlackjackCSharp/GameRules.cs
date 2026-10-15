@@ -47,8 +47,7 @@ public class GameRules
         if (Game.s_player.CountHandValue() == 21)
         {
             Console.WriteLine("Player win - player has Blackjack!");
+            Game.s_gameActive = false;
         }
-
-        Game.s_gameActive = false;
     }
 }

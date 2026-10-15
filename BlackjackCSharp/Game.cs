@@ -10,6 +10,7 @@ public class Game
     
     public Game()
     {
+        s_gameActive = true;
         s_deck = new CardDeck();
         s_dealer = new Dealer();
         s_player = new Player("Player");
@@ -37,7 +38,9 @@ public class Game
                 }
             }
         }
+
+        // Example: GameRules.AskPlayAgain()
+
         while (s_gameActive);
     }
 }
-
