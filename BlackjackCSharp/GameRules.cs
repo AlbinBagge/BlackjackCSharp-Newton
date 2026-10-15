@@ -25,6 +25,34 @@ public class GameRules
         //BustCheck();
         BlackjackCheck();
     }
+    public void PlayerTurn()
+    {
+        while (!Game.s_player.HasStood)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Would you like to hit or stand? (h/s)");
+            string input = Console.ReadLine() ?? "";
+            if (input.ToLower() == "h")
+            {
+                Game.s_player.Hit(Game.s_deck);
+                Game.s_player.PresentInfo();
+                if (Game.s_player.CountHandValue() > 21)
+                {
+                    Console.WriteLine("Player busts! Dealer wins.");
+                    return;
+                }
+            }
+            else if (input.ToLower() == "s")
+            {
+                Game.s_player.Stand();
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 'h' to hit or 's' to stand.");
+            }
+        }
+    }
+
 
     public void DealerTurn()
     {
