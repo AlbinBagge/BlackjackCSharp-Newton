@@ -3,13 +3,14 @@ namespace BlackjackCSharp;
 public class Game
 {
     public GameRules GameRules = new();
-    public bool GameActive { get; set; }
+    public static bool s_gameActive { get; set; }
     public static CardDeck s_deck { get; set; }
     public static Dealer s_dealer { get; set; }
     public static Player s_player { get; set; }
     
     public Game()
     {
+        s_gameActive = true;
         s_deck = new CardDeck();
         s_dealer = new Dealer();
         s_player = new Player("Player");
@@ -22,11 +23,24 @@ public class Game
         {
             GameRules.StartGame();
 
-            // Examples:
-            // GameRules.PlayerTurn();
-            // GameRul.DealerTurn();
-            // GameRules.WinCheck();
+            if (s_gameActive)
+            {
+                //GameRules.PlayerTurn();
+
+                if (s_gameActive)
+                {
+                    //GameRules.DealerTurn();
+
+                    if (s_gameActive)
+                    {
+                        //GameRules.WinCheck();
+                    }
+                }
+            }
         }
-        while (GameActive);
+
+        // Example: GameRules.AskPlayAgain()
+
+        while (s_gameActive);
     }
 }
