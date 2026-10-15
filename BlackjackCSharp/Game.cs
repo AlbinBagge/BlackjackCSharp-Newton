@@ -3,7 +3,7 @@ namespace BlackjackCSharp;
 public class Game
 {
     public GameRules GameRules = new();
-    public bool GameActive { get; set; }
+    public static bool s_gameActive { get; set; }
     public static CardDeck s_deck { get; set; }
     public static Dealer s_dealer { get; set; }
     public static Player s_player { get; set; }
@@ -22,11 +22,22 @@ public class Game
         {
             GameRules.StartGame();
 
-            // Examples:
-            // GameRules.PlayerTurn();
-            // GameRul.DealerTurn();
-            // GameRules.WinCheck();
+            if (s_gameActive)
+            {
+                //GameRules.PlayerTurn();
+
+                if (s_gameActive)
+                {
+                    //GameRules.DealerTurn();
+
+                    if (s_gameActive)
+                    {
+                        //GameRules.WinCheck();
+                    }
+                }
+            }
         }
-        while (GameActive);
+        while (s_gameActive);
     }
 }
+
