@@ -109,4 +109,38 @@ public class GameRules
             }
         }
     }
+    //ward uppgift 
+    public void resetDeck() 
+    {
+        GameRules.s_deck = initializenewdeck();
+
+        GameRules.sdeck.Shuffle();
+
+        GameRules.s_scrapPile.Clear();
+    }
+
+
+
+
+
+
+
+    public bool askToPlayAgain()
+    {
+        Console.WriteLine("Would you like to play again? (y/n)");
+        string answer = Console.ReadLine() ?? "";
+        if (answer.ToLower() == "y")
+        {
+            return true; //loopgame();
+        }
+        else if (answer.ToLower() == "n")
+        {
+            return false;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter 'y' to play again or 'n' to exit.");
+            return askToPlayAgain();
+        }
+    }
 }
