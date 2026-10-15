@@ -16,23 +16,23 @@ public class GameRules
         Console.WriteLine(); // Debug
 
         // Give Game.dealer initial cards
-        Game.DealerObject.Hit(Game.DeckObject);
-        Game.DealerObject.Hit(Game.DeckObject);
-        Console.WriteLine($"{Game.DealerObject.Hand[0]}"); // Print first card in the hand
+        Game.s_dealer.Hit(Game.s_deck);
+        Game.s_dealer.Hit(Game.s_deck);
+        Console.WriteLine($"{Game.s_dealer.Hand[0]}"); // Print first card in the hand
         Console.WriteLine("*2nd hidden card*");
 
         DebugPrintDeck(); // Debug
 
         // Give player initial cards
         Console.WriteLine();
-        Game.PlayerObject.Hit(Game.DeckObject);
-        Game.PlayerObject.Hit(Game.DeckObject);
-        Game.PlayerObject.PresentInfo();
+        Game.s_player.Hit(Game.s_deck);
+        Game.s_player.Hit(Game.s_deck);
+        Game.s_player.PresentInfo();
 
         DebugPrintDeck(); // Debug
 
         // Check for player Blackjack
-        if (Game.PlayerObject.CountHandValue() == 21)
+        if (Game.s_player.CountHandValue() == 21)
         {
             Console.WriteLine("Player win - player has Blackjack!");
         }
@@ -45,7 +45,7 @@ public class GameRules
     {
         Console.WriteLine();
         Console.WriteLine("Debug: deck");
-        foreach (Card card in Game.DeckObject.CardList)
+        foreach (Card card in Game.s_deck.CardList)
         {
             Console.Write($"{card.Value,3}");
         }
@@ -56,14 +56,14 @@ public class GameRules
     {
         do
         {
-            if (Game.DealerObject.DealerCanDraw())
+            if (Game.s_dealer.DealerCanDraw())
             {
-                Game.DealerObject.Hit(Game.DeckObject);
+                Game.s_dealer.Hit(Game.s_deck);
             }
             else
             {
-                Game.DealerObject.Stand();
+                Game.s_dealer.Stand();
             }
-        } while (!Game.DealerObject.HasStood);
+        } while (!Game.s_dealer.HasStood);
     }
 }

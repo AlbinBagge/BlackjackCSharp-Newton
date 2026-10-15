@@ -2,17 +2,17 @@
 namespace BlackjackCSharp;
 public class Game
 {
-    public GameRules GameRul = new();
+    public GameRules GameRules = new();
     public bool GameActive { get; set; }
-    public static CardDeck DeckObject { get; set; }
-    public static Dealer DealerObject { get; set; }
-    public static Player PlayerObject { get; set; }
+    public static CardDeck s_deck { get; set; }
+    public static Dealer s_dealer { get; set; }
+    public static Player s_player { get; set; }
     
     public Game()
     {
-        DeckObject = new CardDeck();
-        DealerObject = new Dealer();
-        PlayerObject = new Player("Player");
+        s_deck = new CardDeck();
+        s_dealer = new Dealer();
+        s_player = new Player("Player");
         LoopGame();
     }
 
@@ -20,7 +20,7 @@ public class Game
     {
         do
         {
-            GameRul.StartGame();
+            GameRules.StartGame();
 
             // Examples:
             // GameRules.PlayerTurn();
