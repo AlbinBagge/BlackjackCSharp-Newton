@@ -108,7 +108,25 @@ public class GameRules
                 break;
             }
         }
-    }
+    }   
+
+    public bool askToPlayAgain()
+    {
+        Console.WriteLine("Would you like to play again? (y/n)");
+        string answer = Console.ReadLine() ?? "";
+        if (answer.ToLower() == "y")
+        {
+        return true; //loopgame();
+        }
+        else if (answer.ToLower() == "n")
+        {
+            return false;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter 'y' to play again or 'n' to exit.");
+            return askToPlayAgain();
+        }
 
     public void WinCheck()
     {
