@@ -132,4 +132,32 @@ public class GameRules
 
         Game.s_gameActive = false;
     }
+
+    public void ResetHands()
+    {
+        Game.s_dealer.ClearHand();
+        Game.s_player.ClearHand();
+    }
+
+    public void ResetCardDeck()
+    {
+        if (Game.s_deck.CutCardIsFound)
+        {
+            Console.WriteLine("CutcardisFound");
+            
+            foreach (var card in Game.s_deck.CardList)
+            {
+                Console.Write($"/////// {card.Value}      ");
+            }
+
+            Console.WriteLine();
+            
+            Game.s_deck = new CardDeck();
+
+            foreach (var card in Game.s_deck.CardList)
+            {
+                Console.Write($"/////// {card.Value}      ");
+            }
+        }
+    }
 }
