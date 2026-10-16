@@ -22,23 +22,26 @@ public class Game
         do
         {
             GameRules.StartGame();
-
             if (s_gameActive)
             {
-                //GameRules.PlayerTurn();
+                GameRules.PlayerTurn();
 
                 if (s_gameActive)
                 {
-                    //GameRules.DealerTurn();
+                    GameRules.DealerTurn();
 
                     if (s_gameActive)
                     {
-                        //  GameRules.WinCheck();
+                        GameRules.WinCheck();
                     }
                 }
             }
 
+            GameRules.ResetHands();
+            GameRules.ResetCardDeck();
             // Example: GameRules.AskPlayAgain()
+            // Example: GameRules.ResetHands()
+            s_gameActive = true;
         }
         while (s_gameActive);
     }

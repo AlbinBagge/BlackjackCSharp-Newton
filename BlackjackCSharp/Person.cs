@@ -29,20 +29,20 @@ public abstract class Person
         HasStood = true;
         Console.WriteLine($"{Name} has now stood. Their final hand is:");
         Console.WriteLine();
-        PresentInfo();
+        PrintHand();
     }
 
     public int CountHandValue()
     {
-        return Hand.Sum(Card => Card.Value);
+        return Hand.Sum(card => card.Value);
     }
 
-    public void PresentInfo()
+    public void PrintHand()
     {
         Console.WriteLine($"{Name}'s hand:");
-        foreach (var Card in Hand)
+        foreach (var card in Hand)
         {
-            Console.WriteLine(Card.ToString());
+            Console.WriteLine(card.ToString());
         }
         Console.WriteLine();
         Console.WriteLine($"The total value of the hand is {CountHandValue()}");

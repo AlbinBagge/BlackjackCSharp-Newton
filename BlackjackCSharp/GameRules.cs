@@ -18,7 +18,7 @@ public class GameRules
         Console.WriteLine();
         Game.s_player.Hit(Game.s_deck);
         Game.s_player.Hit(Game.s_deck);
-        Game.s_player.PresentInfo();
+        Game.s_player.PrintHand();
 
         // Check player hand for Blackjack (11 + 10 = 21)
         BlackjackCheck(Game.s_player);
@@ -36,7 +36,7 @@ public class GameRules
             if (input.ToLower() == "h")
             {
                 Game.s_player.Hit(Game.s_deck);
-                Game.s_player.PresentInfo();
+                Game.s_player.PrintHand();
                 if (Game.s_player.CountHandValue() > 21)
                 {
                     Console.WriteLine("Player busts! Dealer wins.");
@@ -149,5 +149,33 @@ public class GameRules
         }
 
         Game.s_gameActive = false;
+    }
+
+    public void ResetHands()
+    {
+        Game.s_dealer.ClearHand();
+        Game.s_player.ClearHand();
+    }
+
+    public void ResetCardDeck()
+    {
+        if (Game.s_deck.CutCardIsFound)
+        {
+            Console.WriteLine("CutcardisFound");
+            
+            foreach (var card in Game.s_deck.CardList)
+            {
+                Console.Write($"/////// {card.Value}      ");
+            }
+
+            Console.WriteLine();
+            
+            Game.s_deck = new CardDeck();
+
+            foreach (var card in Game.s_deck.CardList)
+            {
+                Console.Write($"/////// {card.Value}      ");
+            }
+        }
     }
 }
