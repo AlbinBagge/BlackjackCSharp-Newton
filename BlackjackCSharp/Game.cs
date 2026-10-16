@@ -19,6 +19,7 @@ public class Game
 
     public void LoopGame()
     {
+        /*
         GameRules.WelcomeMessage();
         Thread.Sleep(2700);
 
@@ -27,36 +28,44 @@ public class Game
 
         GameRules.DisplayRules();
         Thread.Sleep(10000);
+        */
         
         do
         {
             GameRules.StartGame();
             if (s_gameActive)
             {
+                Thread.Sleep(1000);
                 GameRules.PlayerTurn();
 
                 if (s_gameActive)
                 {
+                    Thread.Sleep(1000);
                     GameRules.DealerTurn();
 
                     if (s_gameActive)
                     {
+                        Thread.Sleep(1000);
                         GameRules.WinCheck();
                     }
                 }
             }
 
+            Thread.Sleep(1000);
             if (GameRules.AskToPlayAgain())
             {
+                Console.Clear();
                 s_gameActive = true;
                 GameRules.ResetHands();
                 GameRules.ResetCardDeck();
             }
+            /*
             else
             {
                 GameRules.ExitMessage();
                 Thread.Sleep(3500);
             }
+            */
         }
         while (s_gameActive);
     }

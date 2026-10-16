@@ -18,7 +18,7 @@ public abstract class Person
         var drawnCard = deck.DrawCard();
         
         Hand.Add(drawnCard);
-        Console.WriteLine($"{Name} hit! {Name} got {drawnCard}.");
+        Console.WriteLine($"{Name} hit:  {drawnCard}");
     }
 
     public void Stand()
@@ -37,10 +37,10 @@ public abstract class Person
         Console.Write($"{Name}'s hand:  ");
         foreach (var card in Hand)
         {
-            Console.Write($"{card.ToString()}{" ", 2}");
+            Console.Write($"{card.ToString()}  ");
         }
         Console.WriteLine();
-        Console.WriteLine($"The total value of the hand is {CountHandValue()}.");
+        Console.WriteLine($"The total value of the hand is:  {CountHandValue()}");
     }
 
     public void ClearHand()

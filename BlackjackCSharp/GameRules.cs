@@ -18,19 +18,21 @@ public class GameRules
         // Print dealer's hand
         Console.WriteLine($"{Game.s_dealer.Name}'s hand:  {Game.s_dealer.Hand[0]}  *Hidden card*");
 
+        Thread.Sleep(1000); // Before switching to player
+
         // Give player initial cards
         Console.WriteLine();
         Game.s_player.Hit(Game.s_deck);
         Game.s_player.Hit(Game.s_deck);
 
         // Change the value of an ace if the player would otherwise bust (11 + 11 > 21)
-        BustCheck(Game.s_player);
+        Bust(Game.s_player);
 
         // Print player's hand
         Game.s_player.PrintHand();
 
         // Check if player got Blackjack (11 + 10 == 21)
-        BlackjackCheck(Game.s_player);
+        Blackjack(Game.s_player);
     }
 
     public void PlayerTurn()
@@ -43,7 +45,7 @@ public class GameRules
             if (input.ToLower() == "h")
             {
                 Game.s_player.Hit(Game.s_deck);
-                if (!BustCheck(Game.s_player))
+                if (!Bust(Game.s_player))
                 {
                     Game.s_player.PrintHand();
                 }
@@ -62,15 +64,14 @@ public class GameRules
     public void DealerTurn()
     {
         Console.WriteLine();
-        Console.WriteLine($"Dealer's hidden card is revealed. It is {Game.s_dealer.Hand[1].ToString()}.");
+        Console.WriteLine($"Dealer's hidden card is revealed, it's:  {Game.s_dealer.Hand[1].ToString()}");
 
         // Return method early if dealer got Blackjack
-        if (BlackjackCheck(Game.s_dealer))
+        if (Blackjack(Game.s_dealer))
         {
             return;
         }
 
-        Thread.Sleep(3000);
         Console.WriteLine();
         do
         {
@@ -86,7 +87,7 @@ public class GameRules
         while (!Game.s_dealer.HasStood);
         
         // Check if dealer busted
-        if (!BustCheck(Game.s_dealer))
+        if (!Bust(Game.s_dealer))
         {
             Game.s_dealer.PrintHand(); // Print hand if dealer didn't bust
             Console.WriteLine();
@@ -95,35 +96,39 @@ public class GameRules
 
     public void WinCheck()
     {
-        //  To simplfy and better the readability:
+        //  Simple variable names to improve readability
         var dealer = Game.s_dealer;
         var player = Game.s_player;
 
-        //  Comparison
-        if (dealer.CountHandValue() > player.CountHandValue())  //  Loss
+        // Dealer win
+        if (dealer.CountHandValue() > player.CountHandValue())
         {
-            Console.WriteLine($"{dealer.Name} has a greater hand value. {dealer.Name} wins the round.");
+            Console.WriteLine($"{dealer.Name}'s hand has a greater value. {dealer.Name} wins the round!");
         }
-        else if (dealer.CountHandValue() == player.CountHandValue())    //  Draw
+        // Draw
+        else if (dealer.CountHandValue() == player.CountHandValue())
         {
-            Console.WriteLine($"{dealer.Name} and {player.Name} has the same hand value. It's a draw.");
+            Console.WriteLine($"{dealer.Name}'s and {player.Name}'s hands have the same value. The round is a draw!");
         }
-        else   //   Win
+        // Player win
+        else
         {
-            Console.WriteLine($"{player.Name}'s hand is greater than the {dealer.Name}'s. {player.Name} wins the round.");
+            Console.WriteLine($"{player.Name}'s hand is greater than the {dealer.Name}'s. {player.Name} wins the round!");
         }
 
+        // End round
         Game.s_gameActive = false;
     }
 
-    // Check if player got Blackjack (11 + 10)
-    public bool BlackjackCheck(Person person)
+    // Check if person got Blackjack (11 + 10)
+    public bool Blackjack(Person person)
     {
         if (person.Hand.Any(card => card.Value == 11) && person.Hand.Any(card => card.Value == 10))
         {
-            // Win message
+            // Person win
+            Thread.Sleep(1000); // Wait before win message
             Console.WriteLine();
-            Console.WriteLine($"{person.Name} win - {person.Name} got Blackjack!");       
+            Console.WriteLine($"{person.Name} got Blackjack. {person.Name} wins the round!");       
         
             // End round
             Game.s_gameActive = false;
@@ -135,7 +140,7 @@ public class GameRules
     }
 
     // Check if person busted (> 21)
-    public bool BustCheck(Person person)
+    public bool Bust(Person person)
     {
         while (person.CountHandValue() > 21)
         {
@@ -150,10 +155,12 @@ public class GameRules
             }
             else
             {
-                // Bust message
                 person.PrintHand();
+
+                // Person lose
+                Thread.Sleep(1000); // Wait before lose message
                 Console.WriteLine();
-                Console.WriteLine($"{person.Name} loss - {person.Name} busted!");
+                Console.WriteLine($"{person.Name} busted. {person.Name} loses the round!");
                 
                 // End round
                 Game.s_gameActive = false;
@@ -172,7 +179,7 @@ public class GameRules
         string answer = Console.ReadLine() ?? "";
         if (answer.ToLower() == "y")
         {
-            return true; //loopgame();
+            return true;
         }
         else if (answer.ToLower() == "n")
         {
