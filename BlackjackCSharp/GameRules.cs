@@ -109,21 +109,7 @@ public class GameRules
             }
         }
     }
-    //ward uppgift 
-    public void resetDeck() 
-    {
-        GameRules.s_deck = initializenewdeck();
-
-        GameRules.sdeck.Shuffle();
-
-        GameRules.s_scrapPile.Clear();
-    }
-
-
-
-
-
-
+   
 
     public bool askToPlayAgain()
     {
@@ -131,7 +117,7 @@ public class GameRules
         string answer = Console.ReadLine() ?? "";
         if (answer.ToLower() == "y")
         {
-checkout             return true; //loopgame();
+        return true; //loopgame();
         }
         else if (answer.ToLower() == "n")
         {
