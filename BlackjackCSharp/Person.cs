@@ -34,13 +34,7 @@ public abstract class Person
 
     public int CountHandValue()
     {
-        int total = 0;
-        
-        foreach (var Card in Hand)
-        {
-            total += Card.Value;
-        }
-        return total;
+        return Hand.Sum(Card => Card.Value);
     }
 
     public void PresentInfo()

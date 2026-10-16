@@ -108,8 +108,7 @@ public class GameRules
                 break;
             }
         }
-    }
-   
+    }   
 
     public bool askToPlayAgain()
     {
@@ -128,5 +127,27 @@ public class GameRules
             Console.WriteLine("Invalid input. Please enter 'y' to play again or 'n' to exit.");
             return askToPlayAgain();
         }
+
+    public void WinCheck()
+    {
+        //  To simplfy and better the readability:
+        var dealer = Game.s_dealer;
+        var player = Game.s_player;
+        
+        //  Comparison
+        if (dealer.CountHandValue() > player.CountHandValue())  //  Loss
+        {
+            Console.WriteLine($"{dealer.Name} has greater hand value, {dealer.Name} wins the round.");
+        }
+        else if (dealer.CountHandValue() == player.CountHandValue())    //  Draw
+        {
+            Console.WriteLine($"{dealer.Name} and {player.Name} has the same hand value, it's a draw.");
+        }
+        else   //   Win
+        {
+            Console.WriteLine($"{player.Name}'s hand is greater than the {dealer.Name}'s. {player.Name} wins the round.");
+        }
+
+        Game.s_gameActive = false;
     }
 }
