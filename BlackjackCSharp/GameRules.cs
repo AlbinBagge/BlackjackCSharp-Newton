@@ -8,11 +8,14 @@ public class GameRules
 
     public void StartGame()
     {
+        Console.Clear();
+        
         // Give dealer initial cards
         Game.s_dealer.Hit(Game.s_deck);
-        Game.s_dealer.Hit(Game.s_deck);
-        Console.WriteLine($"{Game.s_dealer.Hand[0]}"); // Print first card
-        Console.WriteLine("*2nd hidden card*");
+        Game.s_dealer.Hand.Add(Game.s_deck.DrawCard());
+        Console.WriteLine($"{Game.s_dealer.Name} got a hidden card");
+        
+        Console.WriteLine($"{Game.s_dealer.Name}'s hand:  {Game.s_dealer.Hand[0]}  *Hidden card*");
 
         // Give player initial cards
         Console.WriteLine();
@@ -28,25 +31,20 @@ public class GameRules
     }
     public void PlayerTurn()
     {
-        while (!Game.s_player.HasStood)
+        while (Game.s_gameActive && !Game.s_player.HasStood)
         {
             Console.WriteLine();
-            Console.WriteLine("Would you like to hit or stand? (h/s)");
+            Console.WriteLine($"Would {Game.s_player.Name} like to hit or stand? (h/s)");
             string input = Console.ReadLine() ?? "";
             if (input.ToLower() == "h")
             {
                 Game.s_player.Hit(Game.s_deck);
-                Game.s_player.PrintHand();
-                /*if (Game.s_player.CountHandValue() > 21)
-                {
-                    Console.WriteLine("Player busts! Dealer wins.");
-                    return;
-                }*/
                 BustCheck(Game.s_player);
             }
             else if (input.ToLower() == "s")
             {
                 Game.s_player.Stand();
+                Game.s_player.PrintHand();
             }
             else
             {
@@ -58,6 +56,16 @@ public class GameRules
 
     public void DealerTurn()
     {
+        Console.WriteLine("\n" + $"The hidden card is revealed. It is a {Game.s_dealer.Hand[1].ToString()}");
+        BlackjackCheck(Game.s_dealer);   
+
+        if (!Game.s_gameActive)
+        {
+            return;
+        }
+        
+        //  Thread.Sleep
+        Console.WriteLine();
         do
         {
             if (Game.s_dealer.DealerCanDraw())
@@ -70,18 +78,18 @@ public class GameRules
             }
         }
         while (!Game.s_dealer.HasStood);
-
+            
         BustCheck(Game.s_dealer);
     }
 
     // Check if player got Blackjack (11 + 10)
     public void BlackjackCheck(Person person)
     {
-        if (person.CountHandValue() == 21)
+        if (person.Hand.Any(card => card.Value == 11) && person.Hand.Any(card => card.Value == 10))
         {
             // Win message
-            Console.WriteLine($"{person.Name} win - {person.Name} has Blackjack!");
-            
+            Console.WriteLine($"{person.Name} win - {person.Name} has Blackjack!");       
+        
             // End round
             Game.s_gameActive = false;
         }
@@ -100,10 +108,12 @@ public class GameRules
                 Card newCard = person.Hand[index];
                 newCard.Value = 1;
                 person.Hand[index] = newCard;
+                person.PrintHand();
             }
             else
             {
                 // Bust message
+                person.PrintHand();
                 Console.WriteLine($"{person.Name} loss - {person.Name} has busted!");
                 
                 // End round
@@ -116,7 +126,7 @@ public class GameRules
 
     public bool AskToPlayAgain()
     {
-        Console.WriteLine("Would you like to play again? (y/n)");
+        Console.WriteLine("\nWould you like to play again? (y/n)");
         string answer = Console.ReadLine() ?? "";
         if (answer.ToLower() == "y")
         {
