@@ -1,4 +1,6 @@
-﻿using System;
+﻿namespace BlackjackCSharp;
+
+using System;
 
 public class CardDeck
 {
@@ -84,7 +86,8 @@ public class CardDeck
 
     public void CutCardFound()
     {
-        Console.WriteLine("The deck is low on cards, the deck will be replaced with a new one next round.");
+        //  Tycxker inte Console.WriteLine passar in så bra här i denna klassen. 
+        //  Det finns ingen annan cw.
         CutCardIsFound = true;
     }
 }

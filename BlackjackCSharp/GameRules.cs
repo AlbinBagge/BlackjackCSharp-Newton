@@ -8,6 +8,8 @@ public class GameRules
 
     public void StartGame()
     {
+        Console.Clear();
+        
         // Give dealer initial cards
         Game.s_dealer.Hit(Game.s_deck);
         Game.s_dealer.Hit(Game.s_deck);
@@ -31,7 +33,7 @@ public class GameRules
         while (!Game.s_player.HasStood)
         {
             Console.WriteLine();
-            Console.WriteLine("Would you like to hit or stand? (h/s)");
+            Console.WriteLine($"Would {Game.s_player.Name} like to hit or stand? (h/s)");
             string input = Console.ReadLine() ?? "";
             if (input.ToLower() == "h")
             {
@@ -58,6 +60,7 @@ public class GameRules
 
     public void DealerTurn()
     {
+        Console.WriteLine();
         do
         {
             if (Game.s_dealer.DealerCanDraw())
@@ -146,6 +149,14 @@ public class GameRules
         }
         else if (dealer.CountHandValue() == player.CountHandValue())    //  Draw
         {
+            // if (dealer.Hand.Count == 2 || player.Hand.Count == 2) //    Ifall av Soft 21 eller Blackjack i slutet
+            // {
+            //     if (expr)
+            //     {
+            //         
+            //     }
+            // }
+            
             Console.WriteLine($"{dealer.Name} and {player.Name} has the same hand value, it's a draw.");
         }
         else   //   Win

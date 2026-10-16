@@ -1,4 +1,4 @@
-﻿using System;
+﻿namespace BlackjackCSharp;
 
 public class Card
 {
@@ -15,6 +15,6 @@ public class Card
     }
     public override string ToString()
     {
-        return $"{Rank} of {Suit} {Symbol} (Value: {Value })";
+        return $"{Rank}{Symbol, 1}"; 
     }
 }
