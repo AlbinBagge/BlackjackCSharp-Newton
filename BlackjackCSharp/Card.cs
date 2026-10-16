@@ -5,16 +5,16 @@ public class Card
     public string Suit { get; set; }
     public string Rank { get; set; }
     public int Value { get; set; }
-    public char Symbole { get; set; }
-    public Card(string rank, string suit, int value, char symbole)
+    public char Symbol { get; set; }
+    public Card(string rank, string suit, int value, char symbol)
     {
         Suit = suit;
         Rank = rank;
         Value = value;
-        Symbole = symbole;
+        Symbol = symbol;
     }
     public override string ToString()
     {
-        return $"{Rank} of {Suit} {Symbole} (Value: {Value })";
+        return $"{Rank} of {Suit} {Symbol} (Value: {Value })";
     }
 }
