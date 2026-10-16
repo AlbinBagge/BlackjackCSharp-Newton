@@ -18,16 +18,14 @@ public abstract class Person
         var drawnCard = deck.DrawCard();
         
         Hand.Add(drawnCard);
-        Console.WriteLine($"{Name} hit! {Name} has goten a {drawnCard}");
-        Console.WriteLine();
+        Console.WriteLine($"{Name} hit! {Name} has gotten a {drawnCard}");
     }
 
     public void Stand()
     {
         HasStood = true;
-        Console.WriteLine($"{Name} has now stood. Their final hand is:");
+        Console.WriteLine($"{Name} has now stood.");
         Console.WriteLine();
-        PrintHand();
     }
 
     public int CountHandValue()
@@ -37,7 +35,7 @@ public abstract class Person
 
     public void PrintHand()
     {
-        Console.WriteLine($"{Name}'s hand:");
+        Console.Write($"{Name}'s hand:  ");
         foreach (var card in Hand)
         {
             Console.Write($"{card.ToString()}{" ", 2}");
