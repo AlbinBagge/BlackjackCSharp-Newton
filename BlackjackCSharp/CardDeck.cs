@@ -14,7 +14,7 @@ public class CardDeck
        
 
         InitializeDeck();
-        shuffle();
+        Shuffle();
         CutCardIsFound = false;
     }
 
@@ -56,7 +56,7 @@ public class CardDeck
         
     }
 
-    public void shuffle()
+    public void Shuffle()
     {
         int n = CardList.Count;
         for (int i = 0; i < n; i++)
