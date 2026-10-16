@@ -9,12 +9,12 @@ public class GameRules
     public void StartGame()
     {
         Console.Clear();
-        
+
         // Give dealer initial cards
         Game.s_dealer.Hit(Game.s_deck);
         Game.s_dealer.Hand.Add(Game.s_deck.DrawCard());
         Console.WriteLine($"{Game.s_dealer.Name} got a hidden card");
-        
+
         Console.WriteLine($"{Game.s_dealer.Name}'s hand:  {Game.s_dealer.Hand[0]}  *Hidden card*");
 
         // Give player initial cards
@@ -29,6 +29,7 @@ public class GameRules
         // Check player hand for two Aces (11 + 11 = 22)
         BustCheck(Game.s_player);
     }
+
     public void PlayerTurn()
     {
         while (Game.s_gameActive && !Game.s_player.HasStood)
@@ -57,14 +58,14 @@ public class GameRules
     public void DealerTurn()
     {
         Console.WriteLine("\n" + $"The hidden card is revealed. It is a {Game.s_dealer.Hand[1].ToString()}");
-        BlackjackCheck(Game.s_dealer);   
+        BlackjackCheck(Game.s_dealer);
 
         if (!Game.s_gameActive)
         {
             return;
         }
-        
-        //  Thread.Sleep
+
+        Thread.Sleep(3000);
         Console.WriteLine();
         do
         {
@@ -76,9 +77,8 @@ public class GameRules
             {
                 Game.s_dealer.Stand();
             }
-        }
-        while (!Game.s_dealer.HasStood);
-            
+        } while (!Game.s_dealer.HasStood);
+
         BustCheck(Game.s_dealer);
     }
 
@@ -88,8 +88,8 @@ public class GameRules
         if (person.Hand.Any(card => card.Value == 11) && person.Hand.Any(card => card.Value == 10))
         {
             // Win message
-            Console.WriteLine($"{person.Name} win - {person.Name} has Blackjack!");       
-        
+            Console.WriteLine($"{person.Name} win - {person.Name} has Blackjack!");
+
             // End round
             Game.s_gameActive = false;
         }
@@ -115,7 +115,7 @@ public class GameRules
                 // Bust message
                 person.PrintHand();
                 Console.WriteLine($"{person.Name} loss - {person.Name} has busted!");
-                
+
                 // End round
                 Game.s_gameActive = false;
 
@@ -148,19 +148,20 @@ public class GameRules
         //  To simplfy and better the readability:
         var dealer = Game.s_dealer;
         var player = Game.s_player;
-        
+
         //  Comparison
-        if (dealer.CountHandValue() > player.CountHandValue())  //  Loss
+        if (dealer.CountHandValue() > player.CountHandValue()) //  Loss
         {
             Console.WriteLine($"{dealer.Name} has greater hand value, {dealer.Name} wins the round.");
         }
-        else if (dealer.CountHandValue() == player.CountHandValue())    //  Draw
+        else if (dealer.CountHandValue() == player.CountHandValue()) //  Draw
         {
             Console.WriteLine($"{dealer.Name} and {player.Name} has the same hand value, it's a draw.");
         }
-        else   //   Win
+        else //   Win
         {
-            Console.WriteLine($"{player.Name}'s hand is greater than the {dealer.Name}'s. {player.Name} wins the round.");
+            Console.WriteLine(
+                $"{player.Name}'s hand is greater than the {dealer.Name}'s. {player.Name} wins the round.");
         }
 
         Game.s_gameActive = false;
@@ -175,47 +176,64 @@ public class GameRules
     public void ResetCardDeck()
     {
         if (Game.s_deck.CutCardIsFound)
-        {            
+        {
             Game.s_deck = new CardDeck();
         }
     }
-    
-    }
-    public void welcomeMessage()
+
+    public void WelcomeMessage()
     {
-        Console.WriteLine("================================================================================================================================");
-        Console.WriteLine("                                                   WELCOME TO BLACKJACK                                                         ");
-        Console.WriteLine("================================================================================================================================");
+        Console.WriteLine(
+            "================================================================================================================================");
+        Console.WriteLine(
+            "                                                   WELCOME TO BLACKJACK                                                         ");
+        Console.WriteLine(
+            "================================================================================================================================");
         Console.WriteLine();
     }
-    public void exitMessage()
+
+    public void ExitMessage()
     {
         Console.WriteLine();
-        Console.WriteLine("================================================================================================================================");
-        Console.WriteLine("                                                   THANK YOU FOR PLAYING!                                                         ");
-        Console.WriteLine("================================================================================================================================");
+        Console.WriteLine(
+            "================================================================================================================================");
+        Console.WriteLine(
+            "                                                   THANK YOU FOR PLAYING!                                                         ");
+        Console.WriteLine(
+            "================================================================================================================================");
     }
-    public void displayRules()
+
+    public void DisplayRules()
     {
-        Console.WriteLine("================================================================================================================================");
-        Console.WriteLine("                                                   GAME RULES                                                                   ");
-        Console.WriteLine("================================================================================================================================");
+        Console.WriteLine(
+            "================================================================================================================================");
+        Console.WriteLine(
+            "                                                   GAME RULES                                                                   ");
+        Console.WriteLine(
+            "================================================================================================================================");
         Console.WriteLine("1. The game is played with a standard deck of 52 cards.");
-        Console.WriteLine("2. The goal of the game is to beat the dealer by having a hand value closer to 21 than the dealer's hand value without going over 21.");
-        Console.WriteLine("3. Each player is dealt two cards, and the dealer is dealt one card face up and one card face down.");
+        Console.WriteLine(
+            "2. The goal of the game is to beat the dealer by having a hand value closer to 21 than the dealer's hand value without going over 21.");
+        Console.WriteLine(
+            "3. Each player is dealt two cards, and the dealer is dealt one card face up and one card face down.");
         Console.WriteLine("4. Players can choose to 'hit' (draw another card) or 'stand' (keep their current hand).");
         Console.WriteLine("5. If a player's hand value exceeds 21, they bust and lose the round.");
         Console.WriteLine("6. The dealer must hit until their hand value is at least 17.");
         Console.WriteLine("7. If the dealer busts, all remaining players win the round.");
-        Console.WriteLine("8. If a player has a hand value of 21 with their first two cards (an Ace and a 10-value card), they have Blackjack and win the round unless the dealer also has Blackjack.");
+        Console.WriteLine(
+            "8. If a player has a hand value of 21 with their first two cards (an Ace and a 10-value card), they have Blackjack and win the round unless the dealer also has Blackjack.");
         Console.WriteLine("9. If both the player and dealer have the same hand value, it is a draw.");
         Console.WriteLine();
     }
-    public void displayControls()
+
+    public void DisplayControls()
     {
-        Console.WriteLine("================================================================================================================================");
-        Console.WriteLine("                                                   GAME CONTROLS                                                                ");
-        Console.WriteLine("================================================================================================================================");
+        Console.WriteLine(
+            "================================================================================================================================");
+        Console.WriteLine(
+            "                                                   GAME CONTROLS                                                                ");
+        Console.WriteLine(
+            "================================================================================================================================");
         Console.WriteLine("1. To hit, type 'h' and press Enter.");
         Console.WriteLine("2. To stand, type 's' and press Enter.");
         Console.WriteLine("3. To play again after a round, type 'y' and press Enter.");

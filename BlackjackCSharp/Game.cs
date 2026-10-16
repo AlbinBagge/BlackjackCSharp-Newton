@@ -19,6 +19,15 @@ public class Game
 
     public void LoopGame()
     {
+        GameRules.WelcomeMessage();
+        Thread.Sleep(2700);
+
+        GameRules.DisplayControls();
+        Thread.Sleep(6000);
+
+        GameRules.DisplayRules();
+        Thread.Sleep(10000);
+        
         do
         {
             GameRules.StartGame();
@@ -42,6 +51,11 @@ public class Game
                 s_gameActive = true;
                 GameRules.ResetHands();
                 GameRules.ResetCardDeck();
+            }
+            else
+            {
+                GameRules.ExitMessage();
+                Thread.Sleep(3500);
             }
         }
         while (s_gameActive);
