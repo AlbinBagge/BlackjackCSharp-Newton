@@ -131,7 +131,7 @@ public class GameRules
         string answer = Console.ReadLine() ?? "";
         if (answer.ToLower() == "y")
         {
-            return true; //loopgame();
+checkout             return true; //loopgame();
         }
         else if (answer.ToLower() == "n")
         {
