@@ -37,11 +37,12 @@ public class Game
                 }
             }
 
-            GameRules.ResetHands();
-            GameRules.ResetCardDeck();
-            // Example: GameRules.AskPlayAgain()
-            // Example: GameRules.ResetHands()
-            s_gameActive = true;
+            if (GameRules.AskToPlayAgain())
+            {
+                s_gameActive = true;
+                GameRules.ResetHands();
+                GameRules.ResetCardDeck();
+            }
         }
         while (s_gameActive);
     }
