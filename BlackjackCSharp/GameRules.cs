@@ -57,8 +57,14 @@ public class GameRules
     public void DealerTurn()
     {
         Console.WriteLine("\n" + $"The hidden card is revealed. It is a {Game.s_dealer.Hand[1].ToString()}");
-        //  Thread.Sleep
+        BlackjackCheck(Game.s_dealer);   
+
+        if (!Game.s_gameActive)
+        {
+            return;
+        }
         
+        //  Thread.Sleep
         Console.WriteLine();
         do
         {
@@ -79,11 +85,11 @@ public class GameRules
     // Check if player got Blackjack (11 + 10)
     public void BlackjackCheck(Person person)
     {
-        if (person.CountHandValue() == 21)
+        if (person.Hand.Any(card => card.Value == 11) && person.Hand.Any(card => card.Value == 10))
         {
             // Win message
-            Console.WriteLine($"{person.Name} win - {person.Name} has Blackjack!");
-            
+            Console.WriteLine($"{person.Name} win - {person.Name} has Blackjack!");       
+        
             // End round
             Game.s_gameActive = false;
         }
@@ -150,14 +156,6 @@ public class GameRules
         }
         else if (dealer.CountHandValue() == player.CountHandValue())    //  Draw
         {
-            // if (dealer.Hand.Count == 2 || player.Hand.Count == 2) //    Ifall av Soft 21 eller Blackjack i slutet
-            // {
-            //     if (expr)
-            //     {
-            //         
-            //     }
-            // }
-            
             Console.WriteLine($"{dealer.Name} and {player.Name} has the same hand value, it's a draw.");
         }
         else   //   Win
