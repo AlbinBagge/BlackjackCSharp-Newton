@@ -18,14 +18,13 @@ public abstract class Person
         var drawnCard = deck.DrawCard();
         
         Hand.Add(drawnCard);
-        Console.WriteLine($"{Name} hit! {Name} has gotten a {drawnCard}");
+        Console.WriteLine($"{Name} hit! {Name} got {drawnCard}.");
     }
 
     public void Stand()
     {
         HasStood = true;
-        Console.WriteLine($"{Name} has now stood.");
-        Console.WriteLine();
+        Console.WriteLine($"{Name} stood.");
     }
 
     public int CountHandValue()
@@ -41,7 +40,7 @@ public abstract class Person
             Console.Write($"{card.ToString()}{" ", 2}");
         }
         Console.WriteLine();
-        Console.WriteLine($"The total value of the hand is {CountHandValue()}");
+        Console.WriteLine($"The total value of the hand is {CountHandValue()}.");
     }
 
     public void ClearHand()
