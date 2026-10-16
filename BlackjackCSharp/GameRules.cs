@@ -37,11 +37,12 @@ public class GameRules
             {
                 Game.s_player.Hit(Game.s_deck);
                 Game.s_player.PrintHand();
-                if (Game.s_player.CountHandValue() > 21)
+                /*if (Game.s_player.CountHandValue() > 21)
                 {
                     Console.WriteLine("Player busts! Dealer wins.");
                     return;
-                }
+                }*/
+                BustCheck(Game.s_player);
             }
             else if (input.ToLower() == "s")
             {
@@ -67,7 +68,10 @@ public class GameRules
             {
                 Game.s_dealer.Stand();
             }
-        } while (!Game.s_dealer.HasStood);
+        }
+        while (!Game.s_dealer.HasStood);
+
+        BustCheck(Game.s_dealer);
     }
 
     // Check if player got Blackjack (11 + 10)
@@ -108,15 +112,15 @@ public class GameRules
                 break;
             }
         }
-    }   
+    }
 
-    public bool askToPlayAgain()
+    public bool AskToPlayAgain()
     {
         Console.WriteLine("Would you like to play again? (y/n)");
         string answer = Console.ReadLine() ?? "";
         if (answer.ToLower() == "y")
         {
-        return true; //loopgame();
+            return true; //loopgame();
         }
         else if (answer.ToLower() == "n")
         {
@@ -125,8 +129,9 @@ public class GameRules
         else
         {
             Console.WriteLine("Invalid input. Please enter 'y' to play again or 'n' to exit.");
-            return askToPlayAgain();
+            return AskToPlayAgain();
         }
+    }
 
     public void WinCheck()
     {
@@ -160,22 +165,8 @@ public class GameRules
     public void ResetCardDeck()
     {
         if (Game.s_deck.CutCardIsFound)
-        {
-            Console.WriteLine("CutcardisFound");
-            
-            foreach (var card in Game.s_deck.CardList)
-            {
-                Console.Write($"/////// {card.Value}      ");
-            }
-
-            Console.WriteLine();
-            
+        {            
             Game.s_deck = new CardDeck();
-
-            foreach (var card in Game.s_deck.CardList)
-            {
-                Console.Write($"/////// {card.Value}      ");
-            }
         }
     }
 }
