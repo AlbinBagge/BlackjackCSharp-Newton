@@ -55,10 +55,10 @@ Alla gruppmedlemmar har skrivit kod. I början av projektet tilldelades varje gr
 - Begripa varandras tankesätt
 
 ### Vad vi skulle förbättra om vi hade mer tid
+- Vårt samarbete och arbetsflöde
 - Ytterligare funktioner som:
   - Flera spelare
   - Flera kortlekar
   - "Split"
   - Satsning
   - Dubbling av satsning
-- Vårt samarbete och arbetsflöde
