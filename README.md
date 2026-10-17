@@ -1,16 +1,26 @@
 # Blackjack - C# Projekt
 ## Projektbeskrivning
-...
+Projektet handlade om att skapa kortspelet Blackjack i C# så att det kan spelas i konsollen. Gruppen fokuserade på att följa riktiga spelregler som används på casinon.
+
+Simplifieringar:
+- Endast en spelare och en kortlek.
+- Satsning och split tillåts inte.
+
+Regler:
+- Hela kortleken blandas om nästa runda när bara 25% av kortleken är kvar.
+
 ## Gruppmedlemmar
 - Ward Mustafa
 - Ferit Bat
 - Albin Bagge
+
 ## Instruktioner - Hur Spelet Körs
 - Entry point-fil: "Program.cs"
 - Spelet startar automatiskt vid exekvering av programmet.
 - Meddelanden i konsollen instruerar spelaren om deras val.
   - Under spelarens tur trycker de på 'H' för att ta kort eller 'S' för att stanna.
   - När rundan är slut trycker spelaren på 'Y' för att spela igen eller 'N' för att avsluta.
+
 ## Ansvarsfördelning
 ### Hur vi har arbetat med projektet
 Varje gruppmedlem tilldelades en roll i början av projektet:
@@ -30,7 +40,9 @@ Alla gruppmedlemmar har skrivit kod. I början av projektet tilldelades varje gr
 
 ### Vad vi har lärt oss
 ...
+
 ### Vad som var svårt
 ...
-#### Vad vi skulle förbättra om vi hade mer tid
+
+### Vad vi skulle förbättra om vi hade mer tid
 ...
