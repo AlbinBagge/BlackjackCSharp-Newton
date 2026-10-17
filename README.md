@@ -39,10 +39,17 @@ Varje gruppmedlem tilldelades en roll i början av projektet:
 Alla gruppmedlemmar har skrivit kod. I början av projektet tilldelades varje gruppmedlem egna klasser och metoder att skriva. Sedan har arbetsuppgifter delats ut efter behov. Delar av koden har skrivits tillsammans, där en gruppmedlem skriver och de andra kommer med förslag.
 
 ### Vad vi har lärt oss
-...
+(Förslag:)
+- Arbetsflöde och samarbete i Git / GitHub
+- Användning av flera klasser och deras objekt
+- Användning av flera samverkande metoder
+- Användning av statiska variabler
 
 ### Vad som var svårt
-...
+(Förslag:)
+- Lära sig använda Git / GitHub och arbetsflödet
+- Hantera samspelet mellan flera C#-metoder
 
 ### Vad vi skulle förbättra om vi hade mer tid
-...
+(Förslag:)
+- Fler funktioner i spelet som t.ex. flera spelare, flera kortlekar, split, satsning, dubbling av satsning
