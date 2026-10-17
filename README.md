@@ -1,13 +1,13 @@
 # Blackjack - C# Projekt
 ## Projektbeskrivning
-Projektet handlade om att skapa kortspelet Blackjack i C# så att det kan spelas i konsollen. Gruppen fokuserade på att följa riktiga spelregler som används på casinon.
+Projektet handlade om att skapa kortspelet Blackjack i C# så att det kan spelas i konsollen. Gruppen fokuserade på att följa riktiga spelregler som används på casinon. Vi har försökt att använda oss så mycket som möjligt av objektorienterad programmering för att strukturera koden.
 
 Simplifieringar:
 - Endast en spelare och en kortlek.
 - Satsning och split tillåts inte.
 
 Regler:
-- Hela kortleken blandas om nästa runda när bara 25% av kortleken är kvar.
+- Hela kortleken blandas om nästa runda när bara 25% av kortleken är kvar (då skärkortet plockas ur kortleken).
 
 ## Gruppmedlemmar
 - Ward Mustafa
@@ -34,22 +34,31 @@ Varje gruppmedlem tilldelades en roll i början av projektet:
 - Albin - sekreterare
   - Anteckningar i dokument.
   - Hantering av planering.
-  - Text i "README.md".
+  - Skriva i "README.md".
 
 Alla gruppmedlemmar har skrivit kod. I början av projektet tilldelades varje gruppmedlem egna klasser och metoder att skriva. Sedan har arbetsuppgifter delats ut efter behov. Delar av koden har skrivits tillsammans, där en gruppmedlem skriver och de andra kommer med förslag.
 
 ### Vad vi har lärt oss
-(Förslag:)
-- Arbetsflöde och samarbete i Git / GitHub
-- Användning av flera klasser och deras objekt
+- Vikten av god kommunikation och samarbete
+- Verklighetsbaserat arbetsflöde och samarbete i Git / GitHub
+- Användning av flera klasser och objekt
 - Användning av flera samverkande metoder
 - Användning av statiska variabler
+- Användning av "public" och "private"
 
 ### Vad som var svårt
-(Förslag:)
 - Lära sig använda Git / GitHub och arbetsflödet
 - Hantera samspelet mellan flera C#-metoder
+- Avgöra vad som behöver göras till en metod
+- Skriva C#-metoder som går att återanvända i flera sammanhang
+- Tidsuppskattning av projektets delar
+- Begripa varandras tankesätt
 
 ### Vad vi skulle förbättra om vi hade mer tid
-(Förslag:)
-- Fler funktioner i spelet som t.ex. flera spelare, flera kortlekar, split, satsning, dubbling av satsning
+- Ytterligare funktioner som:
+  - Flera spelare
+  - Flera kortlekar
+  - "Split"
+  - Satsning
+  - Dubbling av satsning
+- Vårt samarbete och arbetsflöde
