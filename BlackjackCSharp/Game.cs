@@ -14,40 +14,38 @@ public class Game
         s_deck = new CardDeck();
         s_dealer = new Dealer();
         s_player = new Player("Player");
+        GameRules.WelcomeMessage();
         LoopGame();
     }
 
     public void LoopGame()
     {
-        GameRules.WelcomeMessage();
-        Thread.Sleep(2700);
-
-        GameRules.DisplayControls();
-        Thread.Sleep(6000);
-
-        GameRules.DisplayRules();
-        Thread.Sleep(10000);
-        
         do
         {
             GameRules.StartGame();
             if (s_gameActive)
             {
+                Thread.Sleep(1000);
                 GameRules.PlayerTurn();
 
                 if (s_gameActive)
                 {
+                    Thread.Sleep(1000);
                     GameRules.DealerTurn();
 
                     if (s_gameActive)
                     {
+                        Thread.Sleep(1000);
                         GameRules.WinCheck();
                     }
                 }
             }
 
+            Thread.Sleep(1000);
+            
             if (GameRules.AskToPlayAgain())
             {
+                Console.Clear();
                 s_gameActive = true;
                 GameRules.ResetHands();
                 GameRules.ResetCardDeck();
