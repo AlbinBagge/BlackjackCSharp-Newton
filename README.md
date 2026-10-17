@@ -1,13 +1,19 @@
 # Blackjack - C# Projekt
-## Projektbeskrivning
-## Gruppmedlemmar
+### Projektbeskrivning
+...
+### Gruppmedlemmar
 - Ward Mustafa
 - Ferit Bat
 - Albin Bagge
-## Instruktioner - Hur Spelet Körs
-### Entry point fil: ```Program.cs```
-## Ansvarsfördelning
-### Hur vi har arbetat med projektet:
-### Vad vi har lärt oss:
-### Vad som var svårt:
-### Vad vi skulle förbättra om vi hade mer tid:
+### Instruktioner - Hur Spelet Körs
+#### Entry point fil: ```Program.cs```
+- ...
+### Ansvarsfördelning
+#### Hur vi har arbetat med projektet:
+...
+#### Vad vi har lärt oss:
+...
+#### Vad som var svårt:
+...
+#### Vad vi skulle förbättra om vi hade mer tid:
+...
