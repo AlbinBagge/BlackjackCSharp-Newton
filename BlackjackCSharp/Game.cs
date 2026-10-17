@@ -14,22 +14,12 @@ public class Game
         s_deck = new CardDeck();
         s_dealer = new Dealer();
         s_player = new Player("Player");
+        GameRules.WelcomeMessage();
         LoopGame();
     }
 
     public void LoopGame()
     {
-        /*
-        GameRules.WelcomeMessage();
-        Thread.Sleep(2700);
-
-        GameRules.DisplayControls();
-        Thread.Sleep(6000);
-
-        GameRules.DisplayRules();
-        Thread.Sleep(10000);
-        */
-        
         do
         {
             GameRules.StartGame();
@@ -52,6 +42,7 @@ public class Game
             }
 
             Thread.Sleep(1000);
+            
             if (GameRules.AskToPlayAgain())
             {
                 Console.Clear();
@@ -59,13 +50,11 @@ public class Game
                 GameRules.ResetHands();
                 GameRules.ResetCardDeck();
             }
-            /*
             else
             {
                 GameRules.ExitMessage();
                 Thread.Sleep(3500);
             }
-            */
         }
         while (s_gameActive);
     }
