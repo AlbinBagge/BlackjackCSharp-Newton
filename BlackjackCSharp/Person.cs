@@ -15,7 +15,7 @@ public abstract class Person
 
     public void Hit(CardDeck deck)
     {
-        var drawnCard = deck.DrawCard();
+        Card drawnCard = deck.DrawCard();
         
         Hand.Add(drawnCard);
         Console.WriteLine($"{Name} hit:  {drawnCard}");
@@ -48,5 +48,4 @@ public abstract class Person
         Hand.Clear();
         HasStood = false;
     }
-
 }

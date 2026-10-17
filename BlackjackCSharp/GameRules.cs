@@ -8,8 +8,6 @@ public class GameRules
 
     public void StartGame()
     {
-        Console.Clear();
-
         // Give dealer initial cards
         Game.s_dealer.Hit(Game.s_deck);
         Game.s_dealer.Hand.Add(Game.s_deck.DrawCard());
@@ -203,6 +201,8 @@ public class GameRules
         if (Game.s_deck.CutCardIsFound)
         {
             Game.s_deck = new CardDeck();
+            Console.WriteLine("Deck reset!");
+            Console.WriteLine();
         }
     }
 

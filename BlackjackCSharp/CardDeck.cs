@@ -1,7 +1,5 @@
 ﻿namespace BlackjackCSharp;
 
-using System;
-
 public class CardDeck
 {
 	public List<Card> CardList = new List<Card>();
@@ -10,11 +8,6 @@ public class CardDeck
 
     public CardDeck()
     {
-        // Initialize the deck of cards
-        // Create a standard deck of 52 cards
-        // Set console.OutputEncoding = System.Text.Encoding.UTF8; in Main as instructed
-       
-
         InitializeDeck();
         Shuffle();
         CutCardIsFound = false;
@@ -70,24 +63,15 @@ public class CardDeck
         } 
     }
     
-    //  Uppdaterad kortdragnings och kortlek logik nedan
-    
     public Card DrawCard()
     {
         if (CardList.Count < 13 && !CutCardIsFound)
         {
-            CutCardFound();
+            CutCardIsFound = true;
         }
         
         Card drawnCard = CardList[0];
         CardList.RemoveAt(0);
         return drawnCard;
-    }
-
-    public void CutCardFound()
-    {
-        //  Tycxker inte Console.WriteLine passar in så bra här i denna klassen. 
-        //  Det finns ingen annan cw.
-        CutCardIsFound = true;
     }
 }
