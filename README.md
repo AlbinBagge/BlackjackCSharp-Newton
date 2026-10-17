@@ -26,7 +26,7 @@ Varje gruppmedlem tilldelades en roll i början av projektet:
   - Hantering av planering.
   - Text i "README.md".
 
-...
+Alla gruppmedlemmar har skrivit kod. I början av projektet tilldelades varje gruppmedlem egna klasser och metoder att skriva. Sedan har arbetsuppgifter delats ut efter behov. Delar av koden har skrivits tillsammans, där en gruppmedlem skriver och de andra kommer med förslag.
 
 ### Vad vi har lärt oss
 ...
