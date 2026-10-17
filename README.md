@@ -6,22 +6,25 @@
 - Ferit Bat
 - Albin Bagge
 ## Instruktioner - Hur Spelet Körs
-### Entry point-fil: ```Program.cs```
-- ...
+- Entry point-fil: "Program.cs"
+- Spelet startar automatiskt vid exekvering av programmet.
+- Meddelanden i konsollen instruerar spelaren om deras val.
+  - Under spelarens tur trycker de på 'H' för att ta kort eller 'S' för att stanna.
+  - När rundan är slut trycker spelaren på 'Y' för att spela igen eller 'N' för att avsluta.
 ## Ansvarsfördelning
 ### Hur vi har arbetat med projektet
 Varje gruppmedlem tilldelades en roll i början av projektet:
-- Ward - Granskare och testare
-  - Granskning av kod
-  - Testning av programmet
-- Ferit - Projektledare
-  - Skapande och hantering av GitHub repository
-  - Utdelning av arbetsuppgifter
-  - Målsättning för gruppen
-- Albin - Sekreterare
-  - Anteckningar i dokument
-  - Hantering av planering
-  - Text i README.md
+- Ward - granskare och testare
+  - Granskning av kod.
+  - Testning av programmet.
+- Ferit - projektledare
+  - Skapande och hantering av GitHub repository.
+  - Utdelning av arbetsuppgifter.
+  - Målsättning för gruppen.
+- Albin - sekreterare
+  - Anteckningar i dokument.
+  - Hantering av planering.
+  - Text i "README.md".
 
 ...
 
